@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Dashboard</title>
+</head>
+<body>
+    <h1>SQL Query Data Dashboard</h1>
+    
+    <!-- Input area for SQL query -->
+    <form method="POST" action="/run_query">
+        <textarea name="sql_query" rows="4" cols="50" placeholder="Enter your SQL query here..."></textarea><br><br>
+        <button type="submit">Submit Query</button>
+    </form>
+    
+    {% if chart_image %}
+        <!-- Display the generated chart -->
+        <h3>Query Result Chart</h3>
+        <img src="data:image/png;base64,{{ chart_image }}" alt="Chart">
+    {% endif %}
+</body>
+</html>
