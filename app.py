@@ -1,9 +1,13 @@
 import logging
 from flask import Flask, request, jsonify, render_template
+from dotenv import load_dotenv
+import os
 import mysql.connector
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
+
+load_dotenv()
 
 # Set up logging to console
 logging.basicConfig(
@@ -19,10 +23,10 @@ def get_connection():
     try:
         logger.debug("Connecting to MySQL database...")
         connection = mysql.connector.connect(
-            host='db',
-            user='root',
-            password='Platino@1901',
-            database='hotel'
+            host=os.getenv('DB_HOST'),
+            user=os.getenv('DB_USER'),
+            password=os.getenv('DB_PASSWORD'),
+            database=os.getenv('DB_NAME')
         )
         logger.debug("Successfully connected to MySQL database")
         return connection
