@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Connection</title>
+</head>
+<body>
+    <h1>Enter Database Connection Details</h1>
+    <form method="POST" action="/">
+        <label for="db_host">Host:</label>
+        <input type="text" id="db_host" name="db_host" required><br><br>
+        <label for="db_user">User:</label>
+        <input type="text" id="db_user" name="db_user" required><br><br>
+        <label for="db_password">Password:</label>
+        <input type="password" id="db_password" name="db_password" required><br><br>
+        <label for="db_name">Database Name:</label>
+        <input type="text" id="db_name" name="db_name" required><br><br>
+        <button type="submit">Connect</button>
+    </form>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
